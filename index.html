@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Qui apporte quoi ?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎊 Fête entre amis – Qui apporte quoi ? 🍕🍹</h1>
+
+    <form id="foodForm">
+      <input type="text" id="name" placeholder="Ton nom" required />
+      <input type="text" id="people" placeholder="Nombre de personnes" required />
+      <input type="text" id="food" placeholder="Ce que tu apportes à manger" required />
+      <input type="text" id="drink" placeholder="Ce que tu apportes à boire" required />
+      <textarea id="notes" placeholder="Allergies / remarques (facultatif)"></textarea>
+      <button type="submit">➕ Ajouter à la liste</button>
+    </form>
+
+    <h2>📝 Liste des participants</h2>
+    <ul id="list"></ul>
+    <button id="clearBtn" class="clear">🗑️ Effacer ma liste locale</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
