@@ -1,0 +1,22 @@
+name: Update Data JSON
+on:
+  repository_dispatch:
+    types: [add_contribution]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update data.json
+        run: |
+          node -e "const fs=require('fs');const data=JSON.parse(fs.readFileSync('data.json','utf8'));data.push(JSON.parse(process.env.PAYLOAD));fs.writeFileSync('data.json',JSON.stringify(data,null,2));"
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+      - name: Commit changes
+        run: |
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
+          git add data.json
+          git commit -m 'Update data.json'
+          git push
